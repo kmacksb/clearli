@@ -1,0 +1,34 @@
+!!!  
+%html  
+  %head  
+    %title Montreal Weather   
+    %link(rel="stylesheet" href="css/styles.css")  
+  %body  
+    #wrapper  
+      #header  
+        %h1 The weather today is...  
+       
+      #content  
+
+      
+
+        %h1 Current Temp  
+        %p  
+          #{@current_temp} °F 
+
+        %h1 Yesterdays Temp
+        %p
+          #{@yesterday_temp} °F
+
+        %h1 It's currently
+        %p
+          #{@temp_difference} degrees #{@temp_description}
+          and #{@wind_description} than this time yesterday #{@location_info} #{@result}
+
+
+
+
+        
+      #footer  
+        %p  
+          Sample weather app  
