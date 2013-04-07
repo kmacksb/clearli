@@ -1,0 +1,8 @@
+source 'http://rubygems.org'
+gem 'sinatra'
+gem 'sinatra'
+gem 'Haml'
+gem 'hashie'
+gem 'forecast_io'
+gem 'shotgun'
+gem 'geocoder'
