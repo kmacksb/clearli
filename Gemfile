@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 gem 'sinatra'
 gem 'sinatra'
-gem 'Haml'
+gem 'haml'
 gem 'hashie'
 gem 'forecast_io'
 gem 'shotgun'
