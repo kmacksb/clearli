@@ -14,6 +14,10 @@ end
 
 
 get '/' do
+  
+  result = request.location
+  @lat = result.latitude
+  @long = result.longitude
 
 forecast = Forecast::IO.forecast(45.4966,-73.5787)
 @current_temp = (((forecast.currently.temperature)-32)*(5.0/9.0)).ceil
