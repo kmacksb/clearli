@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'sinatra'
-require 'Haml'
+require 'haml'
 require 'hashie'
 require 'forecast_io'
 require 'shotgun'
@@ -8,31 +8,23 @@ require 'geocoder'
 
 
 Forecast::IO.configure do |configuration|
-  configuration.api_key = '79f7c17463bf2fc25b89cd3ea8f7cd51'
+  configuration.api_key = 'fe6fa0b5700a6134723fabdb8a08b296'
 end
 
 
 
 get '/' do
 
+forecast = Forecast::IO.forecast(45.4966,-73.5787)
+@current_temp = (((forecast.currently.temperature)-32)*(5.0/9.0)).ceil
+@current_wind = ((forecast.currently.windSpeed) * 1.609344).ceil
 
-result = request.location
+yesterday = Forecast::IO.forecast(45.4966,-73.5787, time: (Time.new.to_i - 86400))
+@yesterday_temp = (((yesterday.currently.temperature)-32)*(5.0/9.0)).ceil
+@yesterday_wind = ((yesterday.currently.windSpeed) * 1.609344).ceil
 
-@long = result.longitude
-@lat = result.latitude
-
-
-
-forecast = Forecast::IO.forecast(45.5,73.5)
-@current_temp = forecast.currently.temperature
-@current_wind = forecast.currently.windSpeed
-
-yesterday = Forecast::IO.forecast(45.5,73.5, time: (Time.new.to_i - 86400))
-@yesterday_temp = yesterday.currently.temperature
-@yesterday_wind = yesterday.currently.windSpeed
-
-@temp_difference = (@current_temp - @yesterday_temp).to_i
-@wind_difference = (((@current_wind - @yesterday_wind)/@yesterday_wind)*100).to_i
+@temp_difference = (@current_temp - @yesterday_temp).ceil
+@wind_difference = (@current_wind - @yesterday_wind)
 
 @temp_description = "warmer"
 	if @temp_difference < 0
@@ -44,14 +36,19 @@ yesterday = Forecast::IO.forecast(45.5,73.5, time: (Time.new.to_i - 86400))
 		@wind_description = "a bit windier"
 	elsif (@wind_difference > 5 && @wind_difference <= 10)
 		@wind_description = "noticeably windier"
-	elsif (@wind_difference > 15)
+	elsif (@wind_difference > 10)
 		@wind_description = "much more windy"
 	elsif (@wind_difference <= 0 && @wind_difference >= -5)
 		@wind_description = "a bit less windy"
 	elsif (@wind_difference < -5 && @wind_difference >= -10)
 		@wind_description = "noticeably less windy"
-	elsif (@wind_difference < -15)
+	elsif (@wind_difference < -10)
 		@wind_description = "way less windy"
+	end
+
+@unit = "degree"
+	unless @temp_difference == 1 || @temp_difference == -1
+		@unit = "degrees"
 	end
 	
 	haml :index
