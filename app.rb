@@ -19,11 +19,11 @@ get '/' do
   @lat = result.latitude
   @long = result.longitude
 
-forecast = Forecast::IO.forecast(45.4966,-73.5787)
+forecast = Forecast::IO.forecast(@lat,@long)
 @current_temp = (((forecast.currently.temperature)-32)*(5.0/9.0)).ceil
 @current_wind = ((forecast.currently.windSpeed) * 1.609344).ceil
 
-yesterday = Forecast::IO.forecast(45.4966,-73.5787, time: (Time.new.to_i - 86400))
+yesterday = Forecast::IO.forecast(@lat,@long, time: (Time.new.to_i - 86400))
 @yesterday_temp = (((yesterday.currently.temperature)-32)*(5.0/9.0)).ceil
 @yesterday_wind = ((yesterday.currently.windSpeed) * 1.609344).ceil
 
