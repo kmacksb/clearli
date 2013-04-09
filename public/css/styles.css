@@ -4,7 +4,7 @@
 
 #wrapper{  
     width:105%;  
-    background-image:url('http://upload.wikimedia.org/wikipedia/commons/3/3a/Nature_reserve_%C5%BDi%C5%BEk%C5%AFv_vrch_in_summer_2012_(21).JPG');
+    background-image: url(puclic/images/trees.jpg);
     background-size:cover;
 	margin-left: -1%;
     font-family: 'Lato';
