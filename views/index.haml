@@ -3,9 +3,8 @@
   %head  
     %title #{@city}'s Weather
     %link(rel="stylesheet" href="css/styles.css")  
-  %link(href='http://fonts.googleapis.com/css?family=Lato:100' rel = 'stylesheet' type = 'text/css')
-    
-
+    %link(href='http://fonts.googleapis.com/css?family=Lato:100' rel = 'stylesheet' type = 'text/css')
+    %script{"src" => 'javascripts/skycons.js', "type" => 'text/javascript'}
   %body  
     #wrapper  
       #header  
@@ -13,23 +12,21 @@
       #content 
         %figure{"class" => "icons"}
           %canvas{"id" => "#{@current_icon}", "width" => "64", "height" => "64"}
-
         %h1 
           #{@temp_difference_abs} #{@unit} #{@temp_description}
           and #{@wind_description} than this time yesterday. It's also #{@cloud_description} yesterday.
-
         %br
         %br
         %br
-        
+      #footer
+        %p
+          Powered by <a href="http://forecast.io">Forecast.io</a> | Kyle Mack 2013
 
-    #footer
-      %p
-        Powered by <a href="http://forecast.io">Forecast.io</a> | Kyle Mack 2013
+    
 
 
 
-%script{"src" => 'javascripts/skycons.js', "type" => 'text/javascript'}
+
 %script
   var icons = new Skycons({"color": "white"});
   icons.set("clear-day", Skycons.CLEAR_DAY); 

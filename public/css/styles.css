@@ -1,11 +1,15 @@
+html, body {
+    height: 102%;
+    width:100%;
+}
 
 #wrapper{  
-    width:105%;  
+    width:100%;  
     background-image:url(/images/trees.jpg);
-    background-size:cover;
-	margin-left: -2.5%;
+    background-size: 100%;
     font-family: 'Lato';
-    height: 720px;
+    height: 100%;
+    min-height: 100%;
 }  
   
 #header{  
@@ -29,8 +33,7 @@ h2{
 
 }  
   
-#content{  
-    margin:12px 0;  
+#content{    
     width: 50%;
     height: auto;
     margin-top: 10%;
@@ -42,8 +45,6 @@ h2{
    	padding: 2em;
     line-height: 1em;
 }  
-
-
   
 h1{  
     font-size:150%;  
@@ -54,13 +55,15 @@ h1{
 #footer {
  background-color: rgba(0,0,0,.8);
  color:white;
- z-index: 10;
  height: 2em;
- margin-top: -3em;
  font-family: 'Lato';
  font-size: .5em;
- width:105%;
-
+ width:100%;
+ margin-left: -1em;
+ padding-left: 2em;
+ padding-bottom: 1em;
+ position: fixed;
+ bottom: 0;
 }
 
 a {
