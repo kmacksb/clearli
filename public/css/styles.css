@@ -35,13 +35,12 @@ h2{
 #content{  
     margin:12px 0;  
     width: 50%;
-    height: 50%;
-    border-radius: 10px;
+    height: 40%;
     margin-left: 25%;
     text-align: center;
     color: white;
     background-color: rgba(0,0,0,.8);
-   
+   	padding: 2em;
 }  
 
 
