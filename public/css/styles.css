@@ -15,6 +15,7 @@
     padding-top: 5px;
 	text-align:center;
     color:white;
+    padding-bottom: .2%;
 }  
   
 #header>h1{  
@@ -32,6 +33,7 @@ h2{
     margin:12px 0;  
     width: 50%;
     height: auto;
+    margin-top: 10%;
     margin-left:auto;
     margin-right: auto;
     text-align: center;
