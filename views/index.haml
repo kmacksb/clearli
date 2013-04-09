@@ -10,6 +10,10 @@
       #header  
         %h1 The weather in #{@city} is...     
       #content 
+        
+        %canvas {:id= #{@current_icon} width="64" height="64"}
+       
+
         %h1 Current Temp  
         %p  
           #{@current_temp} °C
@@ -22,4 +26,6 @@
         %p
           #{@temp_difference} #{@unit} #{@temp_description}
           and #{@wind_description} than this time yesterday
-       
+
+%script{:src => '/javascripts/skycons.js'}
+%script{:src => '/javascripts/app.js'}   
