@@ -21,12 +21,12 @@ get '/' do
 	city = request.location.city
 	@city = city
 	  
-	forecast = Forecast::IO.forecast(45.4956,-73.5787)
+	forecast = Forecast::IO.forecast(@lat, @long)
 	@current_temp = (((forecast.currently.temperature)-32)*(5.0/9.0)).ceil
 	@current_wind = ((forecast.currently.windSpeed) * 1.609344).ceil
 	@current_icon = forecast.currently.icon
 
-	yesterday = Forecast::IO.forecast(45.4956,-73.5787, time: (Time.new.to_i - 86400))
+	yesterday = Forecast::IO.forecast(@lat, @long, time: (Time.new.to_i - 86400))
 	@yesterday_temp = (((yesterday.currently.temperature)-32)*(5.0/9.0)).ceil
 	@yesterday_wind = ((yesterday.currently.windSpeed) * 1.609344).ceil
 
