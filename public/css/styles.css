@@ -1,12 +1,11 @@
 html, body {
-    height: 102%;
+    height:102%;
     width:100%;
 }
 
 #wrapper{  
-    width:100%;  
     background-image:url(/images/trees.jpg);
-    background-size: cover;
+    margin-left: -1em;
     font-family: 'Lato';
     height: 100%;
     min-height: 100%;
