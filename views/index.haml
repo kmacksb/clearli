@@ -1,8 +1,10 @@
 !!!  
 %html  
   %head  
-    %title Montreal Weather   
+    %title #{@city}'s Weather
     %link(rel="stylesheet" href="css/styles.css")  
+  %link(href='http://fonts.googleapis.com/css?family=Lato:100' rel = 'stylesheet' type = 'text/css')
+
   %body  
     #wrapper  
       #header  
@@ -23,13 +25,5 @@
         %h1 It's currently
         %p
           #{@temp_difference} #{@unit} #{@temp_description}
-          and #{@wind_description} than this time yesterday #{@location_info} #{@lat} #{@long} #{@current_temp} @{yesterday_temp}
-		  
-
-
-
-
-        
-      #footer  
-        %p  
-          Sample weather app  
+          and #{@wind_description} than this time yesterday
+       
