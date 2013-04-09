@@ -6,6 +6,7 @@ require 'forecast_io'
 require 'shotgun'
 require 'geocoder'
 
+Geocoder.configure(:timeout => 15)
 
 Forecast::IO.configure do |configuration|
   configuration.api_key = 'fe6fa0b5700a6134723fabdb8a08b296'
@@ -20,7 +21,6 @@ get '/' do
 	city = request.location.city
 	@city = city
 	  
-
 	forecast = Forecast::IO.forecast(@lat, @long)
 	@current_temp = (((forecast.currently.temperature)-32)*(5.0/9.0)).ceil
 	@current_wind = ((forecast.currently.windSpeed) * 1.609344).ceil
@@ -32,24 +32,23 @@ get '/' do
 	@temp_difference = (@current_temp - @yesterday_temp).ceil	
 	@wind_difference = (@current_wind - @yesterday_wind)
 
-
 	@temp_description = "warmer"
 		if @temp_difference < 0
 			@temp_description = "colder"
 		end
 
 	@wind_description = "you dont need to worry about the wind"
-		if (@wind_difference >= 0 && @wind_difference <= 5)
+		if (@wind_difference >= 0 && @wind_difference <= 50)
 			@wind_description = "a bit windier"
-		elsif (@wind_difference > 5 && @wind_difference <= 10)
+		elsif (@wind_difference > 50 && @wind_difference <= 100)
 			@wind_description = "noticeably windier"
-		elsif (@wind_difference > 10)
+		elsif (@wind_difference > 100)
 			@wind_description = "much more windy"
-		elsif (@wind_difference <= 0 && @wind_difference >= -5)
+		elsif (@wind_difference <= 0 && @wind_difference >= -50)
 			@wind_description = "a bit less windy"
-		elsif (@wind_difference < -5 && @wind_difference >= -10)
+		elsif (@wind_difference < -50 && @wind_difference >= -100)
 			@wind_description = "noticeably less windy"
-		elsif (@wind_difference < -10)
+		elsif (@wind_difference < -100)
 			@wind_description = "way less windy"
 		end
 
