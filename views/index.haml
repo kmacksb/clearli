@@ -8,7 +8,7 @@
   %body  
     #wrapper  
       #header  
-        %h1 The weather today is...     
+        %h1 The weather in #{@city} is...     
       #content 
         %h1 Current Temp  
         %p  
@@ -18,7 +18,7 @@
         %p
           #{@yesterday_temp} °C
 
-        %h1 It's currently
+        %h1 Currently
         %p
           #{@temp_difference} #{@unit} #{@temp_description}
           and #{@wind_description} than this time yesterday

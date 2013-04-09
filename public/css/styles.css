@@ -6,7 +6,7 @@
     width:105%;  
     background-image:url(/images/trees.jpg);
     background-size:cover;
-	margin-left: -1%;
+	margin-left: -2.5%;
     font-family: 'Lato';
 
 	height: 720px;
@@ -36,7 +36,8 @@ h2{
     margin:12px 0;  
     width: 50%;
     height: 40%;
-    margin-left: 25%;
+    margin-left:auto;
+    margin-right: auto;
     text-align: center;
     color: white;
     background-color: rgba(0,0,0,.8);
