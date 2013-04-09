@@ -12,7 +12,7 @@
         %h1 The weather in #{@city} is...     
       #content 
         %figure{"class" => "icons"}
-          %canvas{"id" => '#{$current_icon}', "width" => "64", "height" => "64"}
+          %canvas{"id" => "#{@current_icon}", "width" => "64", "height" => "64"}
 
         %h1 Current Temp  
         %p  
@@ -42,15 +42,24 @@
 %script{"src" => 'javascripts/skycons.js', "type" => 'text/javascript'}
 %script
   var icons = new Skycons({"color": "white"});
-  icons.set("clear-day", Skycons.CLEAR_DAY);
+  icons.set("clear-day", Skycons.CLEAR_DAY); 
+%script  
   icons.set("clear-night", Skycons.CLEAR_NIGHT);
+%script   
   icons.set("partly-cloudy-day", Skycons.PARTLY_CLOUDY_DAY);
+%script   
   icons.set("partly-cloudy-night", Skycons.PARTLY_CLOUDY_NIGHT);
+%script   
   icons.set("cloudy", Skycons.CLOUDY);
+%script 
   icons.set("rain", Skycons.RAIN);
+%script   
   icons.set("sleet", Skycons.SLEET);
+%script   
   icons.set("snow", Skycons.SNOW);
+%script   
   icons.set("wind", Skycons.WIND);
+%script   
   icons.set("fog", Skycons.FOG);
 %script
   icons.play();
