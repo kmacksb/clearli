@@ -11,8 +11,6 @@ Forecast::IO.configure do |configuration|
   configuration.api_key = 'fe6fa0b5700a6134723fabdb8a08b296'
 end
 
-
-
 get '/' do
   
   result = request.location
