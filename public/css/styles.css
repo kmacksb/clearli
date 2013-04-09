@@ -1,6 +1,3 @@
-#html, #body {
-	height:100%;
-}
 
 #wrapper{  
     width:105%;  
@@ -8,8 +5,7 @@
     background-size:cover;
 	margin-left: -2.5%;
     font-family: 'Lato';
-
-	height: 720px;
+    height: 720px;
 }  
   
 #header{  
@@ -19,8 +15,6 @@
     padding-top: 5px;
 	text-align:center;
     color:white;
-    font
-   
 }  
   
 #header>h1{  
@@ -52,6 +46,22 @@ h2{
 h1{  
     font-size:150%;  
     color: white;
+    line-height: 1em;
 }  
   
+#footer {
+ background-color: rgba(0,0,0,.8);
+ color:white;
+ z-index: 10;
+ height: 2em;
+ margin-top: -3em;
+ font-family: 'Lato';
+ font-size: .5em;
+ width:105%;
 
+}
+
+a {
+    text-decoration: none;
+    color:white;
+}

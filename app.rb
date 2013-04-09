@@ -34,8 +34,8 @@ get '/' do
 
 	@temp_difference = (@current_temp - @yesterday_temp).ceil
 	@temp_difference_abs = @temp_difference.abs	
-	@wind_difference = ((@current_wind - @yesterday_wind)/@yesterday_wind)*100)
-	@cloud_difference = ((@current_clouds - @yesterday_clouds)/@yesterday_clouds)*100)
+	@wind_difference = (((@current_wind - @yesterday_wind)/@yesterday_wind)*100)
+	@cloud_difference = (((@current_clouds - @yesterday_clouds)/@yesterday_clouds)*100)
 
 	@temp_description = "warmer"
 		if @temp_difference < 0
