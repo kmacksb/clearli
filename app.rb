@@ -13,51 +13,50 @@ end
 
 get '/' do
   
-  result = request.location
-  @lat = result.latitude
-  @long = result.longitude
-  
-  city = request.location.city
-  @city = city
-  
-  
+	result = request.location
+	@lat = result.latitude
+	@long = result.longitude
 
-forecast = Forecast::IO.forecast(@lat, @long)
-@current_temp = (((forecast.currently.temperature)-32)*(5.0/9.0)).ceil
-@current_wind = ((forecast.currently.windSpeed) * 1.609344).ceil
+	city = request.location.city
+	@city = city
+	  
 
-yesterday = Forecast::IO.forecast(@lat, @long, time: (Time.new.to_i - 86400))
-@yesterday_temp = (((yesterday.currently.temperature)-32)*(5.0/9.0)).ceil
-@yesterday_wind = ((yesterday.currently.windSpeed) * 1.609344).ceil
+	forecast = Forecast::IO.forecast(@lat, @long)
+	@current_temp = (((forecast.currently.temperature)-32)*(5.0/9.0)).ceil
+	@current_wind = ((forecast.currently.windSpeed) * 1.609344).ceil
 
-@temp_difference = (@current_temp - @yesterday_temp).ceil
-@wind_difference = (@current_wind - @yesterday_wind)
+	yesterday = Forecast::IO.forecast(@lat, @long, time: (Time.new.to_i - 86400))
+	@yesterday_temp = (((yesterday.currently.temperature)-32)*(5.0/9.0)).ceil
+	@yesterday_wind = ((yesterday.currently.windSpeed) * 1.609344).ceil
 
-@temp_description = "warmer"
-	if @temp_difference < 0
-		@temp_description = "colder"
-	end
+	@temp_difference = (@current_temp - @yesterday_temp).ceil	
+	@wind_difference = (@current_wind - @yesterday_wind)
 
-@wind_description = "you dont need to worry about the wind"
-	if (@wind_difference >= 0 && @wind_difference <= 5)
-		@wind_description = "a bit windier"
-	elsif (@wind_difference > 5 && @wind_difference <= 10)
-		@wind_description = "noticeably windier"
-	elsif (@wind_difference > 10)
-		@wind_description = "much more windy"
-	elsif (@wind_difference <= 0 && @wind_difference >= -5)
-		@wind_description = "a bit less windy"
-	elsif (@wind_difference < -5 && @wind_difference >= -10)
-		@wind_description = "noticeably less windy"
-	elsif (@wind_difference < -10)
-		@wind_description = "way less windy"
-	end
 
-@unit = "degree"
-	unless @temp_difference == 1 || @temp_difference == -1
-		@unit = "degrees"
-	end
-	
-	haml :index
+	@temp_description = "warmer"
+		if @temp_difference < 0
+			@temp_description = "colder"
+		end
 
+	@wind_description = "you dont need to worry about the wind"
+		if (@wind_difference >= 0 && @wind_difference <= 5)
+			@wind_description = "a bit windier"
+		elsif (@wind_difference > 5 && @wind_difference <= 10)
+			@wind_description = "noticeably windier"
+		elsif (@wind_difference > 10)
+			@wind_description = "much more windy"
+		elsif (@wind_difference <= 0 && @wind_difference >= -5)
+			@wind_description = "a bit less windy"
+		elsif (@wind_difference < -5 && @wind_difference >= -10)
+			@wind_description = "noticeably less windy"
+		elsif (@wind_difference < -10)
+			@wind_description = "way less windy"
+		end
+
+	@unit = "degree"
+		unless @temp_difference == 1 || @temp_difference == -1
+			@unit = "degrees"
+		end
+		
+		haml :index
 end
