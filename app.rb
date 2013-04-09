@@ -59,17 +59,17 @@ get '/' do
 
 	@cloud_description = "no brighter or cloudier than"
 		if (@cloud_difference >= 0 && @cloud_difference <= 25)
-			@cloud_description = "a bit brighter than"
-		elsif (@cloud_difference > 25 && @cloud_difference <= 75)
-			@cloud_description = "way brighter than"
-		elsif (@cloud_difference > 75)
-			@cloud_description = "a much more beautiful day than"
-		elsif (@cloud_difference < 0 && @cloud_difference >= -25)
 			@cloud_description = "a bit cloudier"
+		elsif (@cloud_difference > 25 && @cloud_difference <= 75)
+			@cloud_description = "much more cloudy than"
+		elsif (@cloud_difference > 75)
+			@cloud_description = "disgustingly cloudy compared to"
+		elsif (@cloud_difference < 0 && @cloud_difference >= -25)
+			@cloud_description = "a bit sunnier"
 		elsif (@cloud_difference < -25 && @cloud_difference >= -75)
-			@cloud_description = "way cloudier than"
+			@cloud_description = "way brighter than"
 		elsif (@cloud_difference < -75)
-			@cloud_description = "not even as close to as nice as"	
+			@cloud_description = "incredibly beautiful compared to"	
 		end
 	
 	@unit = "degrees"
