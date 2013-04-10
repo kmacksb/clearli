@@ -32,6 +32,15 @@ get '/' do
 	@yesterday_wind = (yesterday.currently.windSpeed)
 	@yesterday_clouds = yesterday.currently.cloudCover
 
+	soon = Forecast::IO.forecast(@lat, @long, time: (Time.new.to_i + 3600))
+	@temp_soon = (soon.currently.temperature)
+
+	@soon_description = "it's going to be warmer within the hour."
+		if @temp_soon < @current_temp
+			@soon_description = "it'll be cooler by the end of the hour."
+		end
+
+
 	@temp_difference = (@current_temp - @yesterday_temp).ceil
 	@temp_difference_abs = @temp_difference.abs	
 	@wind_difference = (((@current_wind - @yesterday_wind)/@yesterday_wind)*100)
