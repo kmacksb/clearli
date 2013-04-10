@@ -9,7 +9,7 @@ require 'geocoder'
 Geocoder.configure(:timeout => 60)
 
 Forecast::IO.configure do |configuration|
-  configuration.api_key = 'fe6fa0b5700a6134723fabdb8a08b296'
+  configuration.api_key = '4b995d1de905a82469d842537d4039e2'
 end
 
 get '/' do
