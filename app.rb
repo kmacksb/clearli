@@ -6,7 +6,7 @@ require 'forecast_io'
 require 'shotgun'
 require 'geocoder'
 
-Geocoder.configure(:timeout => 15)
+Geocoder.configure(:timeout => 30)
 
 Forecast::IO.configure do |configuration|
   configuration.api_key = 'fe6fa0b5700a6134723fabdb8a08b296'
