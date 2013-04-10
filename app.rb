@@ -3,7 +3,7 @@ require 'sinatra'
 require 'haml'
 require 'hashie'
 require 'forecast_io'
-require 'shotgun'
+require 'thin'
 require 'geocoder'
 
 Geocoder.configure(:timeout => 60)

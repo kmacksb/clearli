@@ -1,7 +1,3 @@
-require './app'
-
 Forecast::IO.configure do |configuration|
   configuration.api_key = '4b995d1de905a82469d842537d4039e2'
 end
-
-run Sinatra::Application
