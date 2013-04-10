@@ -22,18 +22,17 @@ get '/' do
 	@city = city
 	  
 	forecast = Forecast::IO.forecast(@lat, @long)
-	@current_temp = forecast.currently.temperature
-	@current_wind = (forecast.currently.windSpeed)
+	@current_temp = (forecast.currently.temperature)
+	@current_wind = (forecast.currently.windSpeed).ceil
 	@current_icon = forecast.currently.icon
 	@current_clouds = forecast.currently.cloudCover
 
 	yesterday = Forecast::IO.forecast(@lat, @long, time: (Time.new.to_i - 86400))
-	@yesterday_temp = yesterday.currently.temperature
+	@yesterday_temp = (yesterday.currently.temperature)
 	@yesterday_wind = (yesterday.currently.windSpeed)
 	@yesterday_clouds = yesterday.currently.cloudCover
 
-	puts 'hello world'
-	@temp_difference = (@current_temp - @yesterday_temp)
+	@temp_difference = (@current_temp - @yesterday_temp).ceil
 	@temp_difference_abs = @temp_difference.abs	
 	@wind_difference = (((@current_wind - @yesterday_wind)/@yesterday_wind)*100)
 	@cloud_difference = (((@current_clouds - @yesterday_clouds)/@yesterday_clouds)*100)
