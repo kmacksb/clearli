@@ -32,6 +32,7 @@ get '/' do
 	@yesterday_wind = (yesterday.currently.windSpeed)
 	@yesterday_clouds = yesterday.currently.cloudCover
 
+	puts 'hello world'
 	@temp_difference = (@current_temp - @yesterday_temp)
 	@temp_difference_abs = @temp_difference.abs	
 	@wind_difference = (((@current_wind - @yesterday_wind)/@yesterday_wind)*100)
