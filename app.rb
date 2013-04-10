@@ -65,11 +65,11 @@ get '/' do
 		elsif (@cloud_difference > 75)
 			@cloud_description = "disgustingly cloudy compared to"
 		elsif (@cloud_difference < 0 && @cloud_difference >= -25)
-			@cloud_description = "a bit sunnier than"
+			@cloud_description = "a bit clearer than"
 		elsif (@cloud_difference < -25 && @cloud_difference >= -75)
-			@cloud_description = "way brighter than"
+			@cloud_description = "way clearer than"
 		elsif (@cloud_difference < -75)
-			@cloud_description = "incredibly beautiful compared to"	
+			@cloud_description = "incredibly clear compared to"	
 		end
 	
 	@unit = "degrees"
