@@ -37,7 +37,7 @@ get '/' do
 
 	@soon_description = "it'll be warmer an hour from now."
 		if @temp_soon < @current_temp
-			@soon_description = "it'll be cooler and hour from now."
+			@soon_description = "it'll be cooler an hour from now."
 		end
 
 
