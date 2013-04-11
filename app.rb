@@ -35,9 +35,9 @@ get '/' do
 	soon = Forecast::IO.forecast(@lat, @long, time: (Time.new.to_i + 3600))
 	@temp_soon = (soon.currently.temperature)
 
-	@soon_description = "it's going to be warmer within the hour."
+	@soon_description = "it'll be warmer an hour from now."
 		if @temp_soon < @current_temp
-			@soon_description = "it'll be cooler by the end of the hour."
+			@soon_description = "it'll be cooler and hour from now."
 		end
 
 
